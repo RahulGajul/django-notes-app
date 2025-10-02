@@ -9,7 +9,8 @@ RUN apt-get update \
 
 # Install Python dependencies
 COPY requirements.txt /app/backend
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir mysqlclient \
+    && pip install --no-cache-dir -r requirements.txt
 
 # Copy project files
 COPY . /app/backend
